@@ -13,7 +13,7 @@ public class DatabaseInterface {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             this.connection= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/CabService","root","2168");
+                    "jdbc:mysql://localhost:3306/CabService","root","lakshith");
         }catch(Exception e){ }
     }
 

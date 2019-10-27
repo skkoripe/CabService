@@ -99,17 +99,6 @@ import javax.swing.JButton;
 		btnBookMyCab.setBounds(398, 336, 210, 54);
 		frame.getContentPane().add(btnBookMyCab);
 		
-		JLabel lblNotEnoughMoney = new JLabel("Not enough money?");
-		lblNotEnoughMoney.setFont(new Font("Arial", Font.ITALIC, 15));
-		lblNotEnoughMoney.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNotEnoughMoney.setBounds(628, 507, 147, 32);
-		frame.getContentPane().add(lblNotEnoughMoney);
-		
-		JButton btnAddMoney = new JButton("Add Money (+300)");
-		btnAddMoney.setFont(new Font("Arial", Font.PLAIN, 15));
-		btnAddMoney.setBounds(785, 507, 169, 32);
-		frame.getContentPane().add(btnAddMoney);
-		
 		JLabel lblWelcome = new JLabel("Welcome,");
 		lblWelcome.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblWelcome.setFont(new Font("Arial", Font.PLAIN, 20));
