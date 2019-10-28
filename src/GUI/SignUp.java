@@ -1,15 +1,12 @@
 package GUI;
 
 import Backend.DatabaseInterface;
+import Backend.UserInfoValidator;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -124,10 +121,21 @@ class SignUp {
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("ok");
-				boolean store=databaseInterface.store(textField.getText(),textField_1.getText()
-						,textField_2.getText(),textField_3.getText(),textField_4.getText());
-				if(!store){
-
+				int validityCheck=new UserInfoValidator(databaseInterface).validate(textField.getText(),
+                        textField_1.getText(),textField_2.getText(),textField_3.getText(),textField_4.getText());
+				switch(validityCheck){
+					case -2: JOptionPane.showMessageDialog(frame, "user_id needs to be unique, please try again.");
+					break;
+					case -1: JOptionPane.showMessageDialog(frame, "Fields cannot be left blank/ invalid phone number.");
+					break;
+					case 1: boolean store=databaseInterface.store(textField.getText(),textField_1.getText()
+							,textField_2.getText(),textField_3.getText(),textField_4.getText());
+					if(!store){
+						JOptionPane.showMessageDialog(frame, "Server issue, try later.");
+					}
+					else{
+						JOptionPane.showMessageDialog(frame, "Added successfully.");
+					}
 				}
 			}
 		});

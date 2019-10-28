@@ -33,6 +33,23 @@ public class DatabaseInterface {
         return -1;
     }
 
+    public int check(String user_id){
+        try{
+            Statement statement=connection.createStatement();
+            String query="select * from user where user_id='"+user_id+"'";
+            ResultSet resultSet=statement.executeQuery(query);
+            if(resultSet.next()){
+                return -2;
+            }
+            else
+                return 1;
+        }
+        catch (Exception e){
+            System.out.println("error at check(user_id)");
+            return 0;
+        }
+    }
+
     public boolean store(String user_name,String user_id,String phone_no,String email_id,String password){
         System.out.println("ok1");
         String query="insert into user values("+"'"+user_name+"',"+"'"+user_id+"',"+phone_no+","+"'"+email_id+"',"+"'"+password+"',300)";
