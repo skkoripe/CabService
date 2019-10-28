@@ -87,10 +87,32 @@ import javax.swing.JButton;
 		frame.getContentPane().add(lblDrop);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.addItem("A");
+		comboBox.addItem("B");
+		comboBox.addItem("C");
+		comboBox.addItem("D");
+		comboBox.addItem("E");
+		comboBox.addItem("F");
+		comboBox.addItem("G");
+		comboBox.addItem("H");
+		comboBox.addItem("I");
+		comboBox.addItem("J");
+		comboBox.setSelectedItem(null);
 		comboBox.setBounds(358, 194, 285, 40);
 		frame.getContentPane().add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.addItem("A");
+		comboBox_1.addItem("B");
+		comboBox_1.addItem("C");
+		comboBox_1.addItem("D");
+		comboBox_1.addItem("E");
+		comboBox_1.addItem("F");
+		comboBox_1.addItem("G");
+		comboBox_1.addItem("H");
+		comboBox_1.addItem("I");
+		comboBox_1.addItem("J");
+		comboBox_1.setSelectedItem(null);
 		comboBox_1.setBounds(360, 257, 283, 40);
 		frame.getContentPane().add(comboBox_1);
 		
