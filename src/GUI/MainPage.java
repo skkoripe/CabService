@@ -93,15 +93,18 @@ public class MainPage {
 		btnLogIn = new JButton("Log In");
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			    String user_name=txtUserId.getText();
+			    String user_id=txtUserId.getText();
                 String password=textField.getText();
-                int wallet=databaseInterface.check(user_name,password);
+                int wallet=databaseInterface.check(user_id,password);
                 System.out.println(wallet);
                 if(wallet==-1){
 					JOptionPane.showMessageDialog(frame, "Wrong Credentials/New User please sign up.");
 				}
+                else if(wallet<300){
+					new AddMoney(user_id,databaseInterface).launch();
+				}
                 else {
-					new Profile(databaseInterface, user_name,wallet).launch();
+					new Profile(databaseInterface, user_id,wallet).launch();
 				}
 			}
 		});
