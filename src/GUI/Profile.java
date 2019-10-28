@@ -4,15 +4,13 @@ import Backend.DatabaseInterface;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
- class Profile {
+class Profile {
 
 	private JFrame frame;
 	private DatabaseInterface databaseInterface;
@@ -86,15 +84,42 @@ import javax.swing.JButton;
 		lblDrop.setBounds(221, 260, 127, 40);
 		frame.getContentPane().add(lblDrop);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<>();
+		comboBox.addItem("A");
+		comboBox.addItem("B");
+		comboBox.addItem("C");
+		comboBox.addItem("D");
+		comboBox.addItem("E");
+		comboBox.addItem("F");
+		comboBox.addItem("G");
+		comboBox.addItem("H");
+		comboBox.addItem("I");
+		comboBox.addItem("J");
+		comboBox.setSelectedItem(null);
 		comboBox.setBounds(358, 194, 285, 40);
 		frame.getContentPane().add(comboBox);
 		
-		JComboBox comboBox_1 = new JComboBox();
+		JComboBox<String> comboBox_1 = new JComboBox<>();
+		comboBox_1.addItem("A");
+		comboBox_1.addItem("B");
+		comboBox_1.addItem("C");
+		comboBox_1.addItem("D");
+		comboBox_1.addItem("E");
+		comboBox_1.addItem("F");
+		comboBox_1.addItem("G");
+		comboBox_1.addItem("H");
+		comboBox_1.addItem("I");
+		comboBox_1.addItem("J");
+		comboBox_1.setSelectedItem(null);
 		comboBox_1.setBounds(360, 257, 283, 40);
 		frame.getContentPane().add(comboBox_1);
 		
 		JButton btnBookMyCab = new JButton("Book my Cab!");
+		btnBookMyCab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new BookedCabDetails().launch();
+			}
+		});
 		btnBookMyCab.setFont(new Font("Arial", Font.BOLD, 16));
 		btnBookMyCab.setBounds(398, 336, 210, 54);
 		frame.getContentPane().add(btnBookMyCab);

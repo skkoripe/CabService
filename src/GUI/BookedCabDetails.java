@@ -16,12 +16,11 @@ public class BookedCabDetails {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String args[]) {
+	public void launch() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BookedCabDetails window = new BookedCabDetails();
-					window.frame.setVisible(true);
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

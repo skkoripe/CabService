@@ -1,8 +1,8 @@
+package main;
 
 import Backend.DatabaseInterface;
 import GUI.MainPage;
 
-import java.awt.*;
 
 public class Launcher {
 

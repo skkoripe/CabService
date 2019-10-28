@@ -53,8 +53,9 @@ public class DatabaseInterface {
     public void addMoney(String user_id,int money){
         try{
             Statement statement=connection.createStatement();
-            String query="alter table user set wallet=wallet+"+money+"where user_id='"+user_id+"'";
-            ResultSet resultSet=statement.executeQuery(query);
+            String query="update user set wallet=wallet+"+money+" where user_id='"+user_id+"'";
+            System.out.println(query);
+            statement.executeUpdate(query);
         }
         catch (Exception e){
             System.out.println("error while adding money");

@@ -64,6 +64,7 @@ public class AddMoney {
 		btnAddMoney.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int addMoney=Integer.parseInt(money.getText());
+				databaseInterface.addMoney(user_id,addMoney);
 				JOptionPane.showMessageDialog(frame, "added successfully.");
 
 			}
