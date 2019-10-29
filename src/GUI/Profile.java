@@ -1,6 +1,7 @@
 package GUI;
 
 import Backend.DatabaseInterface;
+import Backend.DriverDetails;
 
 import java.awt.EventQueue;
 
@@ -114,11 +115,14 @@ class Profile {
 		comboBox_1.setSelectedItem(null);
 		comboBox_1.setBounds(360, 257, 283, 40);
 		frame.getContentPane().add(comboBox_1);
-		
+
 		JButton btnBookMyCab = new JButton("Book my Cab!");
 		btnBookMyCab.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
-				new BookedCabDetails().launch();
+				DriverDetails driverDetails=databaseInterface.assignDriver(comboBox.getSelectedItem().toString());
+				System.out.println(comboBox.getSelectedItem().toString());
+				new BookedCabDetails(driverDetails,comboBox.getSelectedItem().toString(),comboBox_1.getSelectedItem().toString()).launch();
 			}
 		});
 		btnBookMyCab.setFont(new Font("Arial", Font.BOLD, 16));

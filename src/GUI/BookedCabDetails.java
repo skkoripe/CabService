@@ -1,5 +1,7 @@
 package GUI;
 
+import Backend.DriverDetails;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,6 +14,9 @@ import javax.swing.JPasswordField;
 public class BookedCabDetails {
 
 	private JFrame frame;
+	private String pickup;
+	private String drop;
+	private DriverDetails driverDetails;
 
 	/**
 	 * Launch the application.
@@ -31,7 +36,10 @@ public class BookedCabDetails {
 	/**
 	 * Create the application.
 	 */
-	public BookedCabDetails() {
+	public BookedCabDetails(DriverDetails driverDetails,String pickup,String drop) {
+		this.driverDetails=driverDetails;
+		this.pickup=pickup;
+		this.drop=drop;
 		initialize();
 	}
 
@@ -55,22 +63,22 @@ public class BookedCabDetails {
 		lblCabDetails.setBounds(120, 190, 231, 40);
 		frame.getContentPane().add(lblCabDetails);
 		
-		JLabel lbldriverName = new JLabel("//Driver name");
+		JLabel lbldriverName = new JLabel(driverDetails.name);
 		lbldriverName.setFont(new Font("Arial", Font.PLAIN, 20));
 		lbldriverName.setBounds(159, 248, 316, 64);
 		frame.getContentPane().add(lbldriverName);
 		
-		JLabel lblcarNumber = new JLabel("//Car number");
+		JLabel lblcarNumber = new JLabel(driverDetails.carNo);
 		lblcarNumber.setFont(new Font("Arial", Font.PLAIN, 20));
 		lblcarNumber.setBounds(503, 248, 338, 65);
 		frame.getContentPane().add(lblcarNumber);
 		
-		JLabel lblRating = new JLabel("Rating:");
+		JLabel lblRating = new JLabel("rating");
 		lblRating.setFont(new Font("Arial", Font.PLAIN, 20));
 		lblRating.setBounds(503, 322, 64, 40);
 		frame.getContentPane().add(lblRating);
 		
-		JLabel label = new JLabel("//0.5");
+		JLabel label = new JLabel(""+driverDetails.rating);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Arial", Font.PLAIN, 20));
 		label.setBounds(569, 322, 55, 40);
@@ -81,7 +89,7 @@ public class BookedCabDetails {
 		lblStars.setBounds(622, 322, 110, 40);
 		frame.getContentPane().add(lblStars);
 		
-		JLabel lblphoneNo = new JLabel("//Phone no");
+		JLabel lblphoneNo = new JLabel(""+driverDetails.phone_no);
 		lblphoneNo.setFont(new Font("Arial", Font.PLAIN, 20));
 		lblphoneNo.setBounds(161, 322, 231, 40);
 		frame.getContentPane().add(lblphoneNo);
@@ -90,8 +98,10 @@ public class BookedCabDetails {
 		lblEstimatedPrice.setFont(new Font("Arial", Font.PLAIN, 20));
 		lblEstimatedPrice.setBounds(178, 412, 148, 40);
 		frame.getContentPane().add(lblEstimatedPrice);
-		
-		JLabel lblEstimPrice = new JLabel("//estimated Price");
+
+		int distance=(int)pickup.charAt(0)-(int)drop.charAt(0);
+		distance=Math.abs(distance);
+		JLabel lblEstimPrice = new JLabel(distance*10+" Rs");
 		lblEstimPrice.setFont(new Font("Arial", Font.PLAIN, 20));
 		lblEstimPrice.setBounds(336, 412, 206, 40);
 		frame.getContentPane().add(lblEstimPrice);
@@ -102,7 +112,7 @@ public class BookedCabDetails {
 		lblApproximateDistance.setBounds(120, 450, 206, 40);
 		frame.getContentPane().add(lblApproximateDistance);
 		
-		JLabel lblApproxDist = new JLabel("//approx Dist");
+		JLabel lblApproxDist = new JLabel(distance+" km");
 		lblApproxDist.setFont(new Font("Arial", Font.PLAIN, 20));
 		lblApproxDist.setBounds(336, 450, 206, 40);
 		frame.getContentPane().add(lblApproxDist);
@@ -112,7 +122,7 @@ public class BookedCabDetails {
 		btnClose.setBounds(751, 464, 185, 55);
 		frame.getContentPane().add(btnClose);
 		
-		JLabel lblstartingPlace = new JLabel("//Starting place");
+		JLabel lblstartingPlace = new JLabel(pickup);
 		lblstartingPlace.setFont(new Font("Arial", Font.PLAIN, 18));
 		lblstartingPlace.setBounds(328, 118, 64, 40);
 		frame.getContentPane().add(lblstartingPlace);
@@ -122,7 +132,7 @@ public class BookedCabDetails {
 		lblTo.setBounds(414, 120, 42, 37);
 		frame.getContentPane().add(lblTo);
 		
-		JLabel lblend = new JLabel("//End");
+		JLabel lblend = new JLabel(drop);
 		lblend.setFont(new Font("Arial", Font.PLAIN, 18));
 		lblend.setBounds(466, 119, 110, 39);
 		frame.getContentPane().add(lblend);

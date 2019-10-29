@@ -77,4 +77,24 @@ public class DatabaseInterface {
             return false;
         }
     }
+
+    public DriverDetails assignDriver(String pickUP){
+        try{
+            Statement statement=connection.createStatement();
+            String query="Select * from driver where place='"+pickUP+"'";
+            System.out.println(query);
+            ResultSet resultSet=statement.executeQuery(query);
+            while(resultSet.next()){
+                int busy=resultSet.getInt("busy");
+                if(busy==0){
+                    return new DriverDetails(resultSet.getString("name"),resultSet.getInt("rating"),
+                            resultSet.getInt("phone_no"),resultSet.getString("car_no"));
+                }
+            }
+        }
+        catch (Exception e){
+            System.out.println("ERROR while fetching driver details");
+        }
+        return null;
+    }
 }
