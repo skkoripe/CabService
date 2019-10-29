@@ -85,7 +85,7 @@ public class MainPage {
 		txtUserId.setColumns(10);
 		
 		textField = new JTextField();
-		textField.setFont(new Font("Arial", Font.PLAIN, 20));
+		textField.setFont(new Font("Arial", Font.PLAIN, 17));
 		textField.setBounds(367, 243, 322, 43);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
@@ -95,6 +95,7 @@ public class MainPage {
 			public void actionPerformed(ActionEvent e) {
 			    String user_id=txtUserId.getText();
                 String password=textField.getText();
+                System.out.println("ok");
                 int wallet=databaseInterface.check(user_id,password);
                 System.out.println(wallet);
                 if(wallet==-1){

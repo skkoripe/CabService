@@ -18,6 +18,7 @@ class Profile {
 	private int wallet;
 	/**
 	 * Launch the application.
+	 * @wbp.parser.entryPoint
 	 */
 	 void launch() {
 		initialize();

@@ -48,15 +48,15 @@ public class AddMoney {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblInsufficientBalance = new JLabel("Insufficient Balance!");
-		lblInsufficientBalance.setFont(new Font("Arial", Font.PLAIN, 25));
+		JLabel lblInsufficientBalance = new JLabel("Cannot login, Insufficient Balance!");
+		lblInsufficientBalance.setFont(new Font("Arial", Font.PLAIN, 20));
 		lblInsufficientBalance.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInsufficientBalance.setBounds(58, 47, 317, 49);
+		lblInsufficientBalance.setBounds(58, 23, 329, 49);
 		frame.getContentPane().add(lblInsufficientBalance);
 
 		JTextField money = new JTextField();
 		money.setFont(new Font("Arial", Font.PLAIN, 17));
-		money.setBounds(368, 179, 321, 42);
+		money.setBounds(161, 116, 90, 42);
 		frame.getContentPane().add(money);
 		money.setColumns(10);
 		
@@ -70,8 +70,12 @@ public class AddMoney {
 			}
 		});
 		btnAddMoney.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnAddMoney.setBounds(107, 139, 209, 39);
+		btnAddMoney.setBounds(107, 179, 209, 39);
 		frame.getContentPane().add(btnAddMoney);
+		
+		JLabel lblminimumBalanceReqired = new JLabel("Minimum balance required: 300");
+		lblminimumBalanceReqired.setFont(new Font("Arial", Font.PLAIN, 17));
+		lblminimumBalanceReqired.setBounds(98, 63, 251, 28);
+		frame.getContentPane().add(lblminimumBalanceReqired);
 	}
-
 }

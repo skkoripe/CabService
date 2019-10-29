@@ -14,7 +14,9 @@ public class DatabaseInterface {
             Class.forName("com.mysql.jdbc.Driver");
             this.connection= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/CabService","root",Constants.password);
-        }catch(Exception e){ }
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     public int check(String user_id,String password){
@@ -28,7 +30,7 @@ public class DatabaseInterface {
             }
         }
         catch (Exception e){
-
+                System.out.println(e);
         }
         return -1;
     }
